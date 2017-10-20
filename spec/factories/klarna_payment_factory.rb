@@ -57,4 +57,7 @@ FactoryGirl.define do
       order.update_column(:state, "complete")
     end
   end
+
+
+  factory :credit_card_payment, parent: :payment
 end

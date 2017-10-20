@@ -3,16 +3,6 @@ shared_context "ordering with klarna" do
   include RSpec::Matchers
   include Capybara::RSpecMatchers
 
-  def order_product(options)
-    product_name = options.fetch(:product_name, 'Ruby on Rails Bag')
-    testing_data = options.fetch(:testing_data)
-    product_quantity = options.fetch(:product_quantity, 2)
-    email = options.fetch(:email) { testing_data.address.email }
-    discount_code = options.fetch(:discount_code, nil)
-
-
-
-  end
 
   def select_klarna_payment(testing_data)
     on_the_payment_page do |page|

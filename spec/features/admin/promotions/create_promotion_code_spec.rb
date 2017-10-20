@@ -41,6 +41,6 @@ describe 'Ordering with Klarna Payment Method Using Discount', type: 'feature', 
       end
 
       Capybara.current_session.driver.quit
-   end
+    end
   end
 end

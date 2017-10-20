@@ -67,6 +67,5 @@ describe 'Managing a Klarna Payment', type: 'feature', bdd: true do
         expect(page.log_entries.second.message.text).to have_content('Captured order')
       end
     end
-
   end
 end
