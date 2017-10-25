@@ -24,6 +24,14 @@ module KlarnaGateway
     def up_to_spree?(version)
       is_spree? && Gem::Version.new(Spree.version) <= Gem::Version.new(version)
     end
+
+    def above_solidus?(version)
+      is_solidus? && Gem::Version.new(Spree.solidus_version) >= Gem::Version.new(version)
+    end
+
+    def above_spree?(version)
+      is_spree? && Gem::Version.new(Spree.version) >= Gem::Version.new(version)
+    end
   end
 
   def self.configure

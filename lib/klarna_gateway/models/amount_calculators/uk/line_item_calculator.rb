@@ -34,7 +34,7 @@ module KlarnaGateway
       end
 
       def tax_total_version(line_item)
-        if KlarnaGateway.up_to_solidus?('2.0.99')
+        if line_item.adjustments.tax.first.included
           line_item.included_tax_total
         else
           line_item.additional_tax_total

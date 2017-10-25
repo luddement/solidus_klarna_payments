@@ -9,7 +9,7 @@ describe Spree::Admin::PaymentMethodsController do
     context "Create" do
       it "Creates a Klarna Payment Method" do
         expect {
-          spree_post :create, payment_method: { name: "Test Klarna Method", type: "Spree::Gateway::KlarnaCredit" }
+          post :create, params: { payment_method: { name: "Test Klarna Method", type: "Spree::Gateway::KlarnaCredit" } }
         }.to change(Spree::PaymentMethod, :count).by(1)
 
         expect(response).to be_redirect
@@ -37,7 +37,7 @@ describe Spree::Admin::PaymentMethodsController do
         attributes[:gateway_klarna_credit][:preferred_api_secret] = nil
 
         VCR.use_cassette('payment methods controller update with no credentials') do
-          spree_put(:update, attributes)
+          put(:update, params: attributes)
         end
 
         expect(flash[:error]).to match(/can not be tested/)
@@ -46,7 +46,7 @@ describe Spree::Admin::PaymentMethodsController do
 
       it "updates with invalid credentials" do
         VCR.use_cassette('payment methods controller update with invalid credentials') do
-          spree_put(:update, attributes)
+          put(:update, params: attributes)
         end
 
         expect(flash[:error]).to match(/not valid/)
@@ -58,7 +58,7 @@ describe Spree::Admin::PaymentMethodsController do
         attributes[:gateway_klarna_credit][:preferred_api_secret] = current_store_keys['secret']
 
         VCR.use_cassette('payment methods controller update with valid credentials') do
-          spree_put(:update, attributes)
+          put(:update, params: attributes)
         end
 
         expect(flash[:notice]).to match(/configuration completed/)

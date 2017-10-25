@@ -6,8 +6,7 @@ describe KlarnaGateway::DiscountItemSerializer do
   let(:serialized) { serializer.to_hash }
 
   before do
-    order.update_totals
-    order.persist_totals
+    order.update!
     allow_any_instance_of(Spree::Shipment).to receive(:shipping_method).and_return(Spree::ShippingMethod.last)
   end
 

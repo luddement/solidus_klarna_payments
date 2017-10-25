@@ -135,5 +135,9 @@ module Spree
     def payments
       Spree::Payment.where(source: self, payment_method: self.payment_method)
     end
+
+    def reusable?
+      false
+    end
   end
 end

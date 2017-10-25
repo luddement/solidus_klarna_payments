@@ -19,9 +19,9 @@ env:
   - RAILS_ENV=test SOLIDUS_VERSION='~> 2.1.0' RAILS_VERSION='~> 5.0.0' STORE='us'
   - RAILS_ENV=test SOLIDUS_VERSION='~> 2.1.0' RAILS_VERSION='~> 5.0.0' STORE='de'
   - RAILS_ENV=test SOLIDUS_VERSION='~> 2.1.0' RAILS_VERSION='~> 5.0.0' STORE='uk'
-  - RAILS_ENV=test SOLIDUS_VERSION='~> 2.2.0' RAILS_VERSION='~> 5.1.0' STORE='us'
-  - RAILS_ENV=test SOLIDUS_VERSION='~> 2.2.0' RAILS_VERSION='~> 5.1.0' STORE='de'
-  - RAILS_ENV=test SOLIDUS_VERSION='~> 2.2.0' RAILS_VERSION='~> 5.1.0' STORE='uk'
+  - RAILS_ENV=test SOLIDUS_VERSION='~> 2.2.0' RAILS_VERSION='~> 5.0.0' STORE='us'
+  - RAILS_ENV=test SOLIDUS_VERSION='~> 2.2.0' RAILS_VERSION='~> 5.0.0' STORE='de'
+  - RAILS_ENV=test SOLIDUS_VERSION='~> 2.2.0' RAILS_VERSION='~> 5.0.0' STORE='uk'
   - RAILS_ENV=test SOLIDUS_VERSION='~> 2.3.0' RAILS_VERSION='~> 5.1.0' STORE='us'
   - RAILS_ENV=test SOLIDUS_VERSION='~> 2.3.0' RAILS_VERSION='~> 5.1.0' STORE='de'
   - RAILS_ENV=test SOLIDUS_VERSION='~> 2.3.0' RAILS_VERSION='~> 5.1.0' STORE='uk'
@@ -32,8 +32,8 @@ script:
   - bundle update
   - bundle exec rake klarna_gateway:tdd:prepare
   - bundle exec rspec spec --tag "~bdd"
-  # - bundle exec rake klarna_gateway:bdd:prepare
-  # - bundle exec rspec spec --tag bdd
+  - bundle exec rake klarna_gateway:bdd:prepare
+  - bundle exec rspec spec --tag bdd
 
 notifications:
   slack:
