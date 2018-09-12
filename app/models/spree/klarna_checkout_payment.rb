@@ -1,5 +1,7 @@
 module Spree
-  class KlarnaCreditPayment < Spree::Base
+  class KlarnaCheckoutPayment < Spree::Base
+    self.table_name = 'spree_klarna_credit_payments'
+
     belongs_to :payment_method
     belongs_to :user, class_name: Spree.user_class.to_s, foreign_key: 'user_id'
     belongs_to :order, class_name: Spree::Order.to_s, foreign_key: 'spree_order_id'

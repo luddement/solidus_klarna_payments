@@ -7,6 +7,7 @@ require "klarna_gateway/engine"
 require "klarna_gateway/version"
 
 require "active_merchant/billing/gateways/klarna_gateway"
+require "active_merchant/billing/gateways/klarna_checkout_gateway"
 
 require "klarna_gateway/models/order"
 require "klarna_gateway/models/refund"
